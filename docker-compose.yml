@@ -69,8 +69,6 @@ services:
     networks:
       R1h1br:
         ipv4_address: 172.18.0.2
-      R1R2R3br:
-        ipv4_address: 172.20.0.2
     volumes:
       - ./config/R1/zebra.conf:/etc/quagga/zebra.conf
       - ./config/R1/bgpd.conf:/etc/quagga/bgpd.conf
@@ -86,8 +84,6 @@ services:
     networks:
       R2h2br:
         ipv4_address: 172.19.0.2
-      R1R2R3br:
-        ipv4_address: 172.20.0.3
     volumes:
       - ./config/R2/zebra.conf:/etc/quagga/zebra.conf
       - ./config/R2/bgpd.conf:/etc/quagga/bgpd.conf
@@ -103,8 +99,6 @@ services:
     networks:
       R3R4br:
         ipv4_address: 172.21.0.2
-      R1R2R3br:
-        ipv4_address: 172.20.0.4
     volumes:
       - ./config/R3/zebra.conf:/etc/quagga/zebra.conf
       - ./config/R3/bgpd.conf:/etc/quagga/bgpd.conf
@@ -136,11 +130,6 @@ networks:
     ipam:
       config:
         - subnet: 172.19.0.0/16
-  R1R2R3br:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
   R3R4br:
     driver: bridge
     ipam:
